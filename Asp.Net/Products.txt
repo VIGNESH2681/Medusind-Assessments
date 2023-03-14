@@ -1,0 +1,24 @@
+use master;
+CREATE TABLE BiscuitProducts (
+    ProductId int PRIMARY KEY,
+    ProductName nvarchar(50) NOT NULL,
+    Price decimal(10,2) NOT NULL,
+    Category nvarchar(50) NOT NULL
+)
+
+INSERT INTO BiscuitProducts (ProductId, ProductName, Price, Category)
+VALUES (1, 'Milk Bikis', 10, 'Biscuit'),
+       (2, 'Oreo', 20, 'Biscuit'),
+       (3, 'Bourbon', 25, 'Biscuit'),
+       (4, 'Dark Fantasy', 30, 'Biscuit')
+
+
+
+select * from BiscuitProducts
+
+
+CREATE PROCEDURE GetBiscuitProducts
+AS
+BEGIN
+    SELECT * FROM BiscuitProducts WHERE Category = 'Biscuit'
+END
